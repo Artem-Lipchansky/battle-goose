@@ -29,37 +29,37 @@ bg_move = 3
 IMAGE_PATH = "Goose"
 PLAYER_IMAGES = os.listdir(IMAGE_PATH)
 
-# print(PLAYER_IMAGES)
+
 
 player_size = (20, 20)
-player = pygame.image.load('player.png').convert_alpha() #pygame.Surface(player_size)
-# player.fill(COLOR_BLACK)
+player = pygame.image.load('player.png').convert_alpha() 
+
 player_rect = player.get_rect()
 player_rect.center = main_display.get_rect().center
-# player_speed = [1, 1]
+
 player_move_down = [0, 4]
 player_move_up = [0, -4]
 player_move_right = [4, 0]
 player_move_left = [-4, 0]
 
 def create_enemy():
-    # enemy_size = (30, 30)
-    enemy = pygame.image.load('enemy.png').convert_alpha()#pygame.Surface(enemy_size)
-    #enemy.fill(COLOR_BLUE)
+    
+    enemy = pygame.image.load('enemy.png').convert_alpha()
+    
     enemy_rect = pygame.Rect(WIDTH, 
                     random.randint(enemy.get_height(), HEIGHT - enemy.get_height()), 
                     *enemy.get_size())
     enemy_move = [random.randint(-8, -4), 0]
-    # enemy_move = [-1, 0]
+    
     return [enemy, enemy_rect, enemy_move]
 
 
 
 
 def create_bonus():
-    # bonus_size = (30, 30)
+    
     bonus = pygame.image.load('bonus.png').convert_alpha()
-    # bonus_image = pygame.transform.scale(bonus_image, bonus_size)
+    
     bonus_width = bonus.get_width()
     bonus_rect = pygame.Rect(random.randint(bonus_width, WIDTH - bonus_width), 
                              -bonus.get_height(), 
@@ -69,7 +69,7 @@ def create_bonus():
 
 CREATE_ENEMY = pygame.USEREVENT + 1
 pygame.time.set_timer(CREATE_ENEMY, 1500)
-CREATE_BONUS = pygame.USEREVENT + 2  # CREATE_ENEMY + 1
+CREATE_BONUS = pygame.USEREVENT + 2 
 pygame.time.set_timer(CREATE_BONUS, 3000)
 CHANGE_IMAGE = pygame.USEREVENT + 3
 pygame.time.set_timer(CHANGE_IMAGE, 200)
@@ -104,7 +104,7 @@ while playing:
 
 
 
-    # main_display.fill(COLOR_BLACK)
+   
     bg_X1 -= bg_move
 
     bg_X2 -= bg_move
@@ -124,7 +124,7 @@ while playing:
     keys = pygame.key.get_pressed()
 
     if keys[K_DOWN] and player_rect.bottom < HEIGHT:
-        # print("Pressed")
+       
         player_rect = player_rect.move(player_move_down)
         
     if  keys[K_UP] and player_rect.top > 0:
@@ -217,3 +217,30 @@ while playing:
     # player_rect = player_rect.move(player_speed)      
          
        # print(len(enemies))    
+         
+
+         # print(PLAYER_IMAGES)
+
+         # player.fill(COLOR_BLACK)
+
+         # player_speed = [1, 1]
+
+         # enemy_size = (30, 30)
+
+         #enemy.fill(COLOR_BLUE)
+
+         # enemy_move = [-1, 0]
+
+         #pygame.Surface(player_size)
+
+         #pygame.Surface(enemy_size)
+
+          # print("Pressed")
+         
+         # bonus_size = (30, 30)
+
+         # bonus_image = pygame.transform.scale(bonus_image, bonus_size)
+
+          # CREATE_ENEMY + 1
+         
+          # main_display.fill(COLOR_BLACK)
